@@ -5,6 +5,8 @@
 
 用`SpringBoot`来做应该也可以，没有尝试
 
+该代码仅适用于当前版本的`Spring`和当前的环境
+
 ## 内存马检测
 1. 访问`/mapping`查看已有的`mappings`
 2. 访问`/test1`注册`Controller`内存马
