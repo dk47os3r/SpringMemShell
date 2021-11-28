@@ -1,5 +1,6 @@
 package com.example.spring;
 
+import exp.InvisibleShell;
 import exp.InjectToController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.handler.AbstractHandlerMethodMapping;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -88,7 +88,7 @@ public class TestController {
     @ResponseBody
     public String test2() {
         try {
-            new Horse();
+            new InvisibleShell();
         }catch (Exception e){
             e.printStackTrace();
         }

